@@ -9,7 +9,7 @@
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
     "lint:api": "standard api/**/*.js",
-    "dev:api": "nodemon --exec npm run serve:api",
+    "dev:api": "nodemon --watch api --exec npm run serve:api",
     "serve:api": "node -r esm api/main.js",
     "preserve:api": "npm run lint:api",
     "dev": "run-p serve dev:api"
