@@ -28,3 +28,5 @@ $link-focus-border: $primary;
 $body-background-color: #f3f4f6;
 
 @import "~bulma";
+
+// TODO: optimize CSS file size with Purgecss, PurifyCSS, etc
