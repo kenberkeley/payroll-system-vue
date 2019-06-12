@@ -1,12 +1,11 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import { API_PORT } from './config'
 import '~/db/'
 
 const app = express()
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
 app.use('*', (req, res) => {
   res.json({ ok: true })
