@@ -1,15 +1,20 @@
-import express from 'express'
-import { API_PORT } from './config'
-import { resThrow, notFound, errHandler } from '~/middlewares/errHandlers'
 import '~/db/'
+import express from 'express'
+import expressJwt from 'express-jwt'
+import { JWT_SECRET, API_PORT } from './config'
+import { resThrow, notFound, errHandler } from '~/middlewares/errHandlers'
+import mountRouters from '~/modules/'
 
 const app = express()
-
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use(resThrow)
+app.use(expressJwt({ secret: JWT_SECRET }).unless({ path: ['/login'] }))
+
+mountRouters(app)
 app.use('*', notFound)
+
 app.use(errHandler)
 
 app.listen(API_PORT, () => {

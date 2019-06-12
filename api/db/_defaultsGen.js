@@ -1,15 +1,11 @@
+import { ADMIN_USER } from '~/config'
 import saltedPwdHash from '~/utils/saltedPwdHash'
-
-const DEFAULT_USER = {
-  username: 'myob',
-  password: 'CremorneVIC3121'
-}
 
 export default function () {
   return {
     users: [{
-      username: DEFAULT_USER.username,
-      password: saltedPwdHash(DEFAULT_USER)
+      username: ADMIN_USER.username,
+      password: saltedPwdHash(ADMIN_USER)
     }],
     paySlips: [/* {
       employee<string>
