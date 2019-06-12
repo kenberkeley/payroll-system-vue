@@ -14,3 +14,4 @@ app.use(errHandler)
 app.listen(API_PORT, () => {
   console.info(`API server is running on http://localhost:${API_PORT}`)
 })
+// TODO: http://expressjs.com/en/advanced/best-practice-security.html for production
