@@ -13,7 +13,7 @@ export function resThrow (req, res, next) {
 }
 
 export function notFound (req, res, next) {
-  res.throw(`${req.originalUrl} NOT FOUND`, HttpStatus.NOT_FOUND)
+  res.throw(`${req.method} ${req.originalUrl} NOT FOUND`, HttpStatus.NOT_FOUND)
 }
 
 export function errHandler (err, req, res, next) {
