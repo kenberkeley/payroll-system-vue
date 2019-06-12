@@ -1,5 +1,5 @@
 <template>
-  <div class="-default-layout">
+  <div class="-main-layout">
     <headerr />
     <main>
       <section class="container">
@@ -18,7 +18,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.-default-layout {
+.-main-layout {
   // refer to https://stackoverflow.com/a/45762747/5172890
   display: flex;
   flex-direction: column;

@@ -1,12 +1,5 @@
 <template>
-  <default-layout id="app">
-    <router-view/>
-  </default-layout>
+  <component id="app" :is="$route.matched[$route.matched.length - 1].meta.layout || 'div'">
+    <router-view />
+  </component>
 </template>
-<script>
-import DefaultLayout from '@/layouts/default.vue'
-
-export default {
-  components: { DefaultLayout }
-}
-</script>
