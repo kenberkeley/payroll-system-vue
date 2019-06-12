@@ -20,7 +20,7 @@ export function errHandler (err, req, res, next) {
   if (process.env.NODE_ENV === 'development') {
     console.error(err)
   } // else { TODO: Sentry.captureException, etc }
-  const code = err.statusCode || HttpStatus.INTERNAL_SERVER_ERROR
+  const code = err.statusCode || err.status || err.code || HttpStatus.INTERNAL_SERVER_ERROR
   res
     .status(code)
     .json({
