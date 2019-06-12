@@ -1,5 +1,5 @@
 <template>
-  <footer class="navbar has-shadow is-fixed-bottom is-block" role="navigation" aria-label="navigation">
+  <footer class="navbar has-shadow is-block" role="navigation" aria-label="navigation">
     <div id="footer-links" class="container">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item">

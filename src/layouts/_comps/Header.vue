@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar has-shadow is-fixed-top is-block" role="navigation" aria-label="main navigation">
+  <header class="navbar has-shadow is-block" role="navigation" aria-label="main navigation">
     <gradient-line />
     <div class="container">
       <div class="navbar-brand">
