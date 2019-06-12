@@ -9,10 +9,14 @@
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
     "lint:api": "standard api/**/*.js",
-    "dev:api": "nodemon --watch api --exec npm run serve:api",
+    "dev:api": "nodemon --exec npm run serve:api",
     "serve:api": "node -r esm api/main.js",
     "preserve:api": "npm run lint:api",
     "dev": "run-p serve dev:api"
+  },
+  "nodemonConfig": {
+    "watch": ["api/"],
+    "ignore": ["api/db/db.json"]
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -20,6 +24,8 @@
     "core-js": "^2.6.5",
     "esm": "^3.2.25",
     "express": "^4.17.1",
+    "lodash": "^4.17.11",
+    "lowdb": "^1.0.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3"
   },
