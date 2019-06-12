@@ -1,4 +1,4 @@
-import saltedPwdHash from '../utils/saltedPwdHash'
+import saltedPwdHash from '~/utils/saltedPwdHash'
 
 const DEFAULT_USER = {
   username: 'myob',

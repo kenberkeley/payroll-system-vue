@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import { API_PORT } from './config'
-import './db/'
+import '~/db/'
 
 const app = express()
 

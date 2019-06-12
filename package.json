@@ -12,11 +12,19 @@
     "dev:api": "nodemon --exec npm run serve:api",
     "serve:api": "node -r esm api/main.js",
     "preserve:api": "npm run lint:api",
-    "dev": "run-p serve dev:api"
+    "dev": "run-p serve dev:api",
+    "postinstall": "link-module-alias"
+  },
+  "_moduleAliases": {
+    "~": "api/"
   },
   "nodemonConfig": {
-    "watch": ["api/"],
-    "ignore": ["api/db/db.json"]
+    "watch": [
+      "api/"
+    ],
+    "ignore": [
+      "api/db/db.json"
+    ]
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -42,6 +50,7 @@
     "babel-jest": "^23.6.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "link-module-alias": "^1.2.0",
     "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "sass": "^1.18.0",
