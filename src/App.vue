@@ -7,6 +7,9 @@
 import { META_LAYOUT } from '@/constants/RouteFields'
 
 export default {
+  metaInfo: {
+    titleTemplate: '%s | MYOB Pay Slip Generator'
+  },
   computed: {
     layout () {
       const { matched } = this.$route

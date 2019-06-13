@@ -38,6 +38,9 @@ import { QUERY_REDIRECT_URL } from '@/constants/RouteFields'
 
 export default {
   components: { Logo },
+  metaInfo: {
+    title: 'Login'
+  },
   data: () => ({
     username: '',
     password: ''

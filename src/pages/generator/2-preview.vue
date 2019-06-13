@@ -5,6 +5,8 @@
 </template>
 <script>
 export default {
-
+  metaInfo: {
+    title: 'Preview Slip'
+  }
 }
 </script>
