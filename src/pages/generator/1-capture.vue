@@ -106,7 +106,7 @@ export default {
     fields.slice(-2).forEach(field => {
       let origSetter = computed[field].set
       computed[field].set = function (value) {
-        origSetter.call(this, roundNum(value, 2))
+        origSetter.call(this, roundNum(value))
       }
     })
     return computed
