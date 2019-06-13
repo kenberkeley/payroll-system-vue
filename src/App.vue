@@ -12,8 +12,10 @@ export default {
   },
   computed: {
     layout () {
-      const { matched } = this.$route
-      return matched[matched.length - 1].meta[META_LAYOUT] || 'div'
+      return this.$route.matched
+        .map(rc => rc.meta[META_LAYOUT])
+        .filter(Boolean)
+        .pop() || 'div'
     }
   }
 }

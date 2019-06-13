@@ -6,7 +6,7 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Preview Slip'
+    title: 'Preview Pay Slip'
   }
 }
 </script>

@@ -1,12 +1,11 @@
 <template>
   <div>
-    /generator/capture
+    <h1>Pay Slip Generator</h1>
+    <router-view />
   </div>
 </template>
 <script>
 export default {
-  metaInfo: {
-    title: 'Capture Employee Info'
-  }
+
 }
 </script>

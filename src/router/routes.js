@@ -7,23 +7,29 @@ import {
 export default [
   {
     path: '/',
-    redirect: '/generator/capture'
+    redirect: '/generator'
   },
   {
-    path: '/generator/capture',
-    component: require('@/pages/generator/1-capture').default,
+    path: '/generator',
+    component: require('@/pages/generator/index').default,
     meta: {
       [META_LAYOUT]: MainLayout,
       [META_REQUIRE_AUTH]: true
-    }
-  },
-  {
-    path: '/generator/preview',
-    component: require('@/pages/generator/2-preview').default,
-    meta: {
-      [META_LAYOUT]: MainLayout,
-      [META_REQUIRE_AUTH]: true
-    }
+    },
+    children: [
+      {
+        path: '',
+        redirect: 'capture'
+      },
+      {
+        path: 'capture',
+        component: require('@/pages/generator/1-capture').default
+      },
+      {
+        path: 'preview',
+        component: require('@/pages/generator/2-preview').default
+      }
+    ]
   },
   {
     path: '/auth/login',
