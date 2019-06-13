@@ -26,7 +26,7 @@
           <label class="label">Annual Salary</label>
           <div class="control has-icons-left">
             <span class="icon is-left">$</span>
-            <input type="number" step="0.01"
+            <input type="number" step="0.01" min="0"
               v-model.lazy="annualIncome" class="input" required>
           </div>
         </div>
