@@ -5,7 +5,7 @@ import { toast } from 'bulma-toast'
  */
 export default function (err) {
   toast({
-    type: 'is-danger',
+    type: 'is-warning',
     message: typeof err === 'string' ? err : err.message,
     duration: 10000,
     dismissible: true,
