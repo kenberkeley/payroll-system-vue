@@ -20,6 +20,7 @@
           <input type="password" v-model="password" class="input is-medium" required>
         </div>
       </div>
+      <!-- TODO: CAPTCHA -->
       <br />
       <div class="field">
         <div class="control">
@@ -42,7 +43,9 @@ export default {
   }),
   methods: {
     submit () {
-      // TODO
+      this.$store.dispatch('auth/login', this.$data).then(() => {
+        this.$router.replace('/')
+      })
     }
   }
 }
