@@ -65,14 +65,14 @@
               type="number"
               step="0.01"
               min="0"
-              max="100"
+              max="50"
               v-model.lazy="superRate"
               :class="['input', { 'is-danger': $v.superRate.$error }]"
               required
             >
           </div>
           <p v-if="$v.superRate.$error" class="help is-danger">
-            Superannuation rate should be between [0, 100]
+            Superannuation rate should be within [0, 50]
           </p>
         </div>
       </div>
@@ -103,10 +103,10 @@ export default {
   },
   computed: ((fields) => {
     const computed = mapFields(module.name, fields)
-    fields.slice(-2).forEach(field => {
+    fields.slice(-2).forEach((field, idx) => {
       let origSetter = computed[field].set
       computed[field].set = function (value) {
-        origSetter.call(this, roundNum(value))
+        origSetter.call(this, roundNum(idx === 0 ? ~~value : value))
       }
     })
     return computed

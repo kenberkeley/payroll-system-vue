@@ -18,7 +18,7 @@ export default {
     superRate: {
       required,
       decimal,
-      between: between(0, 100)
+      between: between(0, 50)
     }
   }
 }
