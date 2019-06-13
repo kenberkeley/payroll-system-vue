@@ -52,7 +52,7 @@ export default {
         It's harmful to the user experience if using `router.replace` to reach this page,
         because the user might want to go back and correct typos or amounts.
        */
-      this.$router.go(-1)
+      this.$router.replace('/generator/capture')
     }
   },
   computed: {
