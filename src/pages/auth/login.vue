@@ -7,7 +7,7 @@
       </h1>
     </div>
     <br />
-    <form class="box" @submit.prevent="submit">
+    <form class="box" @submit.prevent="login">
       <div class="field">
         <label class="label">Username</label>
         <div class="control">
@@ -34,6 +34,7 @@
 </template>
 <script>
 import Logo from '@/components/Logo.vue'
+import { QUERY_REDIRECT_URL } from '@/constants/RouteFields'
 
 export default {
   components: { Logo },
@@ -42,9 +43,17 @@ export default {
     password: ''
   }),
   methods: {
-    submit () {
+    login () {
       this.$store.dispatch('auth/login', this.$data).then(() => {
-        this.$router.replace('/')
+        let redirectUrl = this.$route.query[QUERY_REDIRECT_URL]
+        if (redirectUrl) {
+          redirectUrl = decodeURIComponent(redirectUrl)
+          // ensure `redirectUrl` is a subpath, not http://evil.com, etc
+          if (!redirectUrl.startsWith('/')) {
+            redirectUrl = null
+          }
+        }
+        this.$router.replace(redirectUrl || '/')
       })
     }
   }
