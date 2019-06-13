@@ -14,6 +14,7 @@ import Headerr from './_comps/Header.vue'
 import Footerr from './_comps/Footer.vue'
 
 export default {
+  name: 'MainLayout',
   components: { Headerr, Footerr }
 }
 </script>

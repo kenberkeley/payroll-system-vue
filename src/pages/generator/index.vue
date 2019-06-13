@@ -23,7 +23,7 @@ export default {
 </script>
 <style lang="scss">
 .-generator-page {
-  padding: 3em .75em 0;
+  padding: 3em .75em;
 
   h1 {
     margin-bottom: .5em;
