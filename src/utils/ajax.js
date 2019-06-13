@@ -10,7 +10,7 @@ export default function ajax (req) {
   req.baseURL = '/api'
   if (jwt.get()) {
     req.headers = {
-      authorization: `Bearer ${jwt.get()}`,
+      Authorization: `Bearer ${jwt.get()}`,
       ...req.headers
     }
   }
@@ -21,7 +21,7 @@ export default function ajax (req) {
     .catch(err => {
       if (err.response) {
         const { code, message } = err.response.data
-        if (code === 401 && message.includes('token')) {
+        if (code === 401) {
           jwt.clear() // invalid token, etc
         }
         captureErr(`[${code}] ${message}`)
