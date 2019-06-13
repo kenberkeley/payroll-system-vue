@@ -1,5 +1,5 @@
 <template>
-  <div class="-login">
+  <div class="-login-page">
     <div class="has-text-centered">
       <logo width="6em" />
       <h1 class="is-size-4 has-text-weight-medium">
@@ -63,7 +63,7 @@ export default {
 }
 </script>
 <style>
-.-login {
+.-login-page {
   margin: 0 auto;
   padding-top: 15%;
   width: 40%;
