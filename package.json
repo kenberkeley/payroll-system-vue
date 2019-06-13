@@ -34,6 +34,7 @@
     "bulma": "^0.7.5",
     "bulma-toast": "^1.5.1",
     "core-js": "^2.6.5",
+    "dayjs": "^1.8.14",
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
