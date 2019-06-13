@@ -9,7 +9,7 @@
         <div class="field">
           <label class="label">First Name</label>
           <div class="control">
-            <input type="text" v-model.lazy="firstName" class="input" required>
+            <input type="text" v-model.trim.lazy="firstName" class="input" required>
           </div>
         </div>
       </div>
@@ -17,7 +17,7 @@
         <div class="field">
           <label class="label">Last Name</label>
           <div class="control">
-            <input type="text" v-model.lazy="lastName" class="input" required>
+            <input type="text" v-model.trim.lazy="lastName" class="input" required>
           </div>
         </div>
       </div>
