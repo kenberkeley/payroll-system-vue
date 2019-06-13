@@ -15,9 +15,8 @@ export default {
     store.registerModule(module.name, module)
     next()
   },
-  beforeRouteLeave (to, from, next) {
+  beforeDestroy () {
     store.unregisterModule(module.name)
-    next()
   }
 }
 </script>
