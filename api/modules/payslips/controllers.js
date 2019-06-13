@@ -6,6 +6,12 @@ export function create (req, res) {
     ...req.body, // TODO: validation
     id: shortid.generate()
   }
-  db.get('payslips').push(newPayslip).write()
-  res.json({ id: newPayslip.id })
+
+  db.get('payslips')
+    .push(newPayslip) // TODO: check if has paid this month, etc
+    .write()
+
+  res.json({
+    id: newPayslip.id
+  })
 }
