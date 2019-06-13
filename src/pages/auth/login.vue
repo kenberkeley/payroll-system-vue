@@ -65,9 +65,9 @@ export default {
 <style>
 .-login-page {
   margin: 0 auto;
-  padding-top: 15%;
-  width: 40%;
+  padding-top: 12%;
+  width: 90%;
   min-width: 300px;
-  max-width: 500px;
+  max-width: 450px;
 }
 </style>
