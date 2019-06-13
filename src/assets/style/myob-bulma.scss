@@ -25,8 +25,12 @@ $link: $primary;
 $link-invert: $primary-invert;
 $link-focus-border: $primary;
 
+$text: #515e6d;
+// $body-color: $text // default
 $body-background-color: #f3f4f6;
+
 $table-cell-padding: .75em;
+$label-color: $grey;
 
 @import "~bulma";
 
