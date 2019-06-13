@@ -20,6 +20,11 @@ export function login (req, res) {
   })
 }
 
+/*
+  TODO: logout, revoke JWT
+  https://github.com/auth0/node-jsonwebtoken/issues/401
+*/
+
 /* req.headers.authorization */
 export function getCurUser (req, res) {
   res.json({
