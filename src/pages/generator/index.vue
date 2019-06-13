@@ -12,11 +12,11 @@ import module from './_store'
 
 export default {
   beforeRouteEnter (to, from, next) {
-    store.registerModule('generator', module)
+    store.registerModule(module.name, module)
     next()
   },
   beforeRouteLeave (to, from, next) {
-    store.unregisterModule('generator')
+    store.unregisterModule(module.name)
     next()
   }
 }

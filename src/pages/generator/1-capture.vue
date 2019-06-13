@@ -57,6 +57,7 @@
 import { mapFields } from 'vuex-map-fields'
 import Headerr from './_comps/Header.vue'
 import roundNum from './_utils/roundNum'
+import module from './_store'
 
 export default {
   components: { Headerr },
@@ -64,7 +65,7 @@ export default {
     title: 'Capture Employee Info'
   },
   computed: ((fields) => {
-    const computed = mapFields('generator', fields)
+    const computed = mapFields(module.name, fields)
     fields.slice(-2).forEach(field => {
       let origSetter = computed[field].set
       computed[field].set = function (value) {
@@ -72,7 +73,7 @@ export default {
       }
     })
     return computed
-  })(['firstName', 'lastName', 'annualIncome', 'superRate']),
+  })(Object.keys(module.state)),
   methods: {
     submit () {
       this.$router.push('/generator/preview')

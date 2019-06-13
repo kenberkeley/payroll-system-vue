@@ -8,6 +8,7 @@ const initState = () => ({
 })
 
 export default {
+  name: 'generator',
   namespaced: true,
   state: initState(),
   getters: {
