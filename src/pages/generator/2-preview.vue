@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <headerr
-      :title="'Pay Slip for ' + previewData[0][1]"
+      :title="'Pay Slip for ' + payslipEntries[0][1]"
       :icon="require('./_assets/user-pay.png')"
     />
     <table class="table is-fullwidth -preview-table">
@@ -12,23 +12,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, idx) in previewData" :key="idx">
+        <tr v-for="(item, idx) in payslipEntries" :key="idx">
           <td>{{ item[0] }}</td>
-          <td>{{ item[1] }}</td>
+          <td>{{ item[2] }} {{ item[1] }}</td>
         </tr>
         <tr></tr>
       </tbody>
     </table>
-    <button class="button is-primary" style="width: 8em" @click="/* TODO */">
+    <button class="button is-primary" style="width: 8em" @click="handlePay">
       Pay
     </button>
   </div>
 </template>
 <script>
 import dayjs from 'dayjs'
-import { mapState } from 'vuex'
+import { toast } from 'bulma-toast'
+import { mapState, mapActions } from 'vuex'
 import Headerr from './_comps/Header.vue'
 import validate from './_mixins/validate'
+import objectify from './_utils/objectify'
 import roundNum from './_utils/roundNum'
 import calcTax from './_utils/calcTax'
 import module from './_store'
@@ -55,7 +57,7 @@ export default {
   },
   computed: {
     ...mapState(module.name, Object.keys(module.state)),
-    previewData () {
+    payslipEntries () {
       const PAY_FREQUENCY = { name: 'Monthly', value: 12, unit: 'M' }
 
       const grossIncome = Math.round(this.annualIncome / PAY_FREQUENCY.value)
@@ -67,13 +69,27 @@ export default {
         ['Employee', this.firstName + ' ' + this.lastName],
         ['Pay Date', dayjs().endOf(PAY_FREQUENCY.unit).format('D MMMM YYYY')],
         ['Pay Frequency', PAY_FREQUENCY.name],
-        ['Annual Income', '$ ' + roundNum(this.annualIncome)],
-        ['Gross Income', '$ ' + roundNum(grossIncome)],
-        ['Income Tax', '$ ' + roundNum(incomeTax)],
-        ['Net Income', '$ ' + roundNum(netIncome)],
-        ['Super', '$ ' + roundNum(superannuation)],
-        ['Pay', '$ ' + roundNum(netIncome - superannuation)]
+        ['Annual Income', roundNum(this.annualIncome), '$'],
+        ['Gross Income', roundNum(grossIncome), '$'],
+        ['Income Tax', roundNum(incomeTax), '$'],
+        ['Net Income', roundNum(netIncome), '$'],
+        ['Super', roundNum(superannuation), '$'],
+        ['Pay', roundNum(netIncome - superannuation), '$']
       ]
+    }
+  },
+  methods: {
+    ...mapActions(module.name, ['savePayslip', 'resetAll']),
+    handlePay () {
+      this.savePayslip(objectify(this.payslipEntries)).then(() => {
+        toast({
+          type: 'is-success',
+          message: 'Successfully saved payslip',
+          duration: 5000
+        })
+        this.resetAll()
+        this.$router.replace('/generator/capture')
+      })
     }
   }
 }
