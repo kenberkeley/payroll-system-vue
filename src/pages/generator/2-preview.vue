@@ -7,19 +7,24 @@
   </div>
 </template>
 <script>
-import { createNamespacedHelpers } from 'vuex'
+import { mapState } from 'vuex'
 import Headerr from './_comps/Header.vue'
+import validate from './_mixins/validate'
 import module from './_store'
 
-const { mapState } = createNamespacedHelpers(module.name)
-
 export default {
+  mixins: [validate],
   components: { Headerr },
   metaInfo: {
     title: 'Preview Payslip'
   },
+  created () {
+    if (this.$v.$invalid) {
+      this.$router.go(-1)
+    }
+  },
   computed: {
-    ...mapState(Object.keys(module.state))
+    ...mapState(module.name, Object.keys(module.state))
   }
 }
 </script>
