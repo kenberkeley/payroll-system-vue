@@ -7,7 +7,7 @@ export default function () {
       username: ADMIN_USER.username,
       password: saltedPwdHash(ADMIN_USER)
     }],
-    paySlips: [/* {
+    payslips: [/* {
       employee<string>
       payDate<string>
       payFrequency<string>
