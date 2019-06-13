@@ -1,11 +1,32 @@
 <template>
-  <div>
-    <h1>Pay Slip Generator</h1>
+  <div class="-generator-page">
+    <h1 class="is-size-4 has-text-weight-medium">
+      Pay Slip Generator
+    </h1>
     <router-view />
   </div>
 </template>
 <script>
-export default {
+import store from '@/store/'
+import module from './_store'
 
+export default {
+  beforeRouteEnter (to, from, next) {
+    store.registerModule('generator', module)
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    store.unregisterModule('generator')
+    next()
+  }
 }
 </script>
+<style lang="scss">
+.-generator-page {
+  padding: 3em .75em 0;
+
+  h1 {
+    margin-bottom: .5em;
+  }
+}
+</style>
