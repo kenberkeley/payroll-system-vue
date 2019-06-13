@@ -16,8 +16,7 @@
       </div>
       <div id="headerNavMenu" :class="['navbar-menu', { 'is-active': isNavMenuVisible }]">
         <div class="navbar-end">
-          <a class="navbar-item">
-            <!-- TODO -->
+          <a class="navbar-item" @click="logout">
             Logout
           </a>
         </div>
@@ -29,6 +28,13 @@
 import common from './common.mixin'
 
 export default {
-  mixins: [common]
+  mixins: [common],
+  methods: {
+    logout () {
+      this.$store.dispatch('auth/logout').then(() => {
+        this.$router.push('/auth/login')
+      })
+    }
+  }
 }
 </script>
