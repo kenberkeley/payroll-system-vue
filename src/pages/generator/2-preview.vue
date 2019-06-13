@@ -44,10 +44,10 @@ export default {
   created () {
     if (this.$v.$invalid) {
       /**
-        Avoid the scenario that:
+        Avoid direct entry, or the problematic scenario which:
           1. Successfully passed the form validation to reach this page
           2. Hit browser's back button, modify the form data, make it invalid
-          3. Hit browser's forward button, still can reach this page, illegally
+          3. Hit browser's forward button, still can reach this page (illegally)
 
         It's harmful to the user experience if using `router.replace` to reach this page,
         because the user might want to go back and correct typos or amounts.
