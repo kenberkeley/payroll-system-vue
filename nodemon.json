@@ -1,0 +1,11 @@
+{
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "watch": [
+    "api/"
+  ],
+  "ignore": [
+    "api/db/db.json"
+  ]
+}

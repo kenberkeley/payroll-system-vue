@@ -18,17 +18,6 @@
   "_moduleAliases": {
     "~": "./"
   },
-  "nodemonConfig": {
-    "env": {
-      "NODE_ENV": "development"
-    },
-    "watch": [
-      "api/"
-    ],
-    "ignore": [
-      "api/db/db.json"
-    ]
-  },
   "dependencies": {
     "axios": "^0.19.0",
     "bulma": "^0.7.5",
