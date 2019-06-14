@@ -1,9 +1,9 @@
-import '~/db/'
+import './db/'
 import express from 'express'
 import expressJwt from 'express-jwt'
 import { JWT_SECRET, API_PORT } from './config'
-import { resThrow, notFound, errHandler } from '~/middlewares/errHandlers'
-import mountRouters from '~/modules/'
+import { resThrow, notFound, errHandler } from './middlewares/errHandlers'
+import mountRouters from './modules/'
 
 const app = express()
 app.use(express.json())

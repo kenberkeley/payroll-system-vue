@@ -1,5 +1,5 @@
 import shortid from 'shortid'
-import db from '~/db/'
+import db from '~/api/db/'
 
 export function create (req, res) {
   const newPayslip = {

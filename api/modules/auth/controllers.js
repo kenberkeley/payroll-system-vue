@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken'
 import HttpStatus from 'http-status-codes'
-import saltedPwdHash from '~/utils/saltedPwdHash'
-import { JWT_SECRET } from '~/config'
-import db from '~/db/'
+import saltedPwdHash from '~/api/utils/saltedPwdHash'
+import { JWT_SECRET } from '~/api/config'
+import db from '~/api/db/'
 
 /* req.body - { username, password } */
 export function login (req, res) {
