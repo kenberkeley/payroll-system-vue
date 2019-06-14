@@ -1,5 +1,5 @@
 import LS from './localStorage'
-const LS_KEY = '__TOKEN__'
+export const LS_KEY = '__TOKEN__'
 
 // Avoid frequent I/O by using a closure variable
 let token = LS.get(LS_KEY)
