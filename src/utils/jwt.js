@@ -1,8 +1,8 @@
 import LS from './localStorage'
-export const LS_KEY = '__TOKEN__'
+import { TOKEN } from '@/constants/LocalStorageKeys'
 
 // Avoid frequent I/O by using a closure variable
-let token = LS.get(LS_KEY)
+let token = LS.get(TOKEN)
 
 /**
   Notice: the token in localStorage could be maliciously altered
@@ -16,11 +16,11 @@ export default {
     return token
   },
   update (str) {
-    LS.set(LS_KEY, str)
+    LS.set(TOKEN, str)
     token = str
   },
   clear () {
-    LS.rm(LS_KEY)
+    LS.rm(TOKEN)
     token = null
   }
 }
