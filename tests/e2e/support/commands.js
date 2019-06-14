@@ -28,8 +28,8 @@ Cypress.Commands.add('formLogin', () => {
   cy.server()
   cy.route('POST', '/api/login').as('login')
 
-  cy.get('input[type=text]').type(ADMIN_USER.username)
-  cy.get('input[type=password]').type(ADMIN_USER.password)
+  cy.contains('div.field', 'Username').find('input').type(ADMIN_USER.username)
+  cy.contains('div.field', 'Password').find('input').type(ADMIN_USER.password)
   cy.get('form').submit()
 
   cy.wait('@login')
