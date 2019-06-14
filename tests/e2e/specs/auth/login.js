@@ -12,8 +12,8 @@ describe('Login', () => {
     cy.server()
     cy.route('POST', '/api/login').as('login')
 
-    cy.contains('div.field', 'Username').find('input').type('noSuchUser')
-    cy.contains('div.field', 'Password').find('input').type('randomPassword')
+    cy.inputField('Username', 'noSuchUser')
+    cy.inputField('Password', 'randomPassword')
     cy.get('form').submit()
 
     cy.wait('@login')

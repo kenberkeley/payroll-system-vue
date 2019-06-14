@@ -16,6 +16,11 @@ import { TOKEN } from '~/src/constants/LocalStorageKeys'
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
 
+Cypress.Commands.add('inputField', (label, value) => {
+  // refer to https://stackoverflow.com/a/55729653/5172890
+  cy.contains('div.field', label).find('input').type(value)
+})
+
 Cypress.Commands.add('ensureUnloggedIn', () => {
   cy.url().should('include', '/login')
   cy.get('h1').should('contain', 'Sign in to Pay Slip Generator')
@@ -28,8 +33,8 @@ Cypress.Commands.add('formLogin', () => {
   cy.server()
   cy.route('POST', '/api/login').as('login')
 
-  cy.contains('div.field', 'Username').find('input').type(ADMIN_USER.username)
-  cy.contains('div.field', 'Password').find('input').type(ADMIN_USER.password)
+  cy.inputField('Username', ADMIN_USER.username)
+  cy.inputField('Password', ADMIN_USER.password)
   cy.get('form').submit()
 
   cy.wait('@login')
