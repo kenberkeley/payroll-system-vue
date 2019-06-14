@@ -4,21 +4,10 @@
       :title="'Pay Slip for ' + payslipEntries[0][1]"
       :icon="require('./_assets/user-pay.png')"
     />
-    <table class="table is-fullwidth -preview-table">
-      <thead class="has-text-weight-medium">
-        <tr>
-          <td>Item</td>
-          <td>Employee Details</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, idx) in payslipEntries" :key="idx">
-          <td>{{ item[0] }}</td>
-          <td>{{ item[2] }} {{ item[1] }}</td>
-        </tr>
-        <tr></tr>
-      </tbody>
-    </table>
+    <preview-table
+      :titles="['Item', 'Employee Details']"
+      :rows="payslipEntries"
+    />
     <button class="button is-primary" style="width: 8em" @click="handlePay">
       Pay
     </button>
@@ -29,6 +18,7 @@ import dayjs from 'dayjs'
 import { toast } from 'bulma-toast'
 import { mapState, mapActions } from 'vuex'
 import Headerr from './_comps/Header.vue'
+import PreviewTable from './_comps/PreviewTable.vue'
 import validate from './_mixins/validate'
 import objectify from './_utils/objectify'
 import roundNum from './_utils/roundNum'
@@ -37,7 +27,7 @@ import module from './_store'
 
 export default {
   mixins: [validate],
-  components: { Headerr },
+  components: { Headerr, PreviewTable },
   metaInfo: {
     title: 'Preview Payslip'
   },
@@ -94,13 +84,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-// refer to https://stackoverflow.com/a/40213845/5172890
-.-preview-table {
-  tr th:first-child,
-  tr td:first-child {
-    width: 18%;
-    min-width: 8.5em;
-  }
-}
-</style>
