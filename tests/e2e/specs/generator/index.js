@@ -47,13 +47,18 @@ describe('Generator', () => {
   })
 
   it('Form validation', () => {
+    cy.inputField('First Name', ' ')
+    cy.inputField('Last Name', ' ')
+    cy.inputField('Annual Salary', -1)
+    cy.inputField('Superannuation Rate', 100)
     cy.contains('Generate Payslip').click()
+
     cy.url().should('include', '/generator/capture') // stay still
     cy.get('form').snapshot('EmptyInput')
 
     cy.inputField('First Name', 'Foo')
     cy.inputField('Last Name', 'Bar')
-    cy.inputField('Annual Salary', 80000)
+    cy.inputField('Annual Salary', 180000)
     cy.inputField('Superannuation Rate', 10)
     cy.contains('Generate Payslip').click()
     cy.url().should('include', '/generator/preview')

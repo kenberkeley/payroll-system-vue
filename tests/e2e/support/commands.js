@@ -19,7 +19,7 @@ require('@cypress/snapshot').register()
 
 Cypress.Commands.add('inputField', (label, value) => {
   // refer to https://stackoverflow.com/a/55729653/5172890
-  cy.contains('div.field', label).find('input').type(value)
+  cy.contains('div.field', label).find('input').clear().type(value)
 })
 
 Cypress.Commands.add('ensureUnloggedIn', () => {
