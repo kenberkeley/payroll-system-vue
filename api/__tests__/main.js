@@ -1,9 +1,12 @@
 /* global describe, beforeAll, it, expect */
+import fs from 'fs'
+import shortid from 'shortid'
 import request from 'supertest'
 import HttpStatus from 'http-status-codes'
 import app from '../main'
+import { DB_FILE } from '../db/'
 import { ADMIN_USER } from '../config'
-import { resetDbData, getDbData } from './_utils'
+const getDbData = () => JSON.parse(fs.readFileSync(DB_FILE, 'utf8'))
 
 describe('api tests', () => {
   let authHeader
@@ -37,25 +40,25 @@ describe('api tests', () => {
   })
 
   it('POST /payslips', async () => {
-    resetDbData()
-    expect(getDbData().payslips.length).toBe(0)
+    const reqGen = () => ({ employee: shortid.generate() + ' ' + shortid.generate() })
 
+    const req1 = reqGen()
     const res1 = await request(app)
       .post('/payslips')
       .set(authHeader)
-      .send({})
+      .send(req1)
     expect(res1.status).toBe(HttpStatus.OK)
-    expect(typeof res1.body.id).toBe('string')
-    expect(getDbData().payslips.length).toBe(1)
+    expect(
+      getDbData().payslips.find(rc => rc.id === res1.body.id).employee
+    ).toBe(req1.employee)
 
+    const req2 = reqGen()
     const res2 = await request(app)
       .post('/payslips')
       .set(authHeader)
-      .send({ employee: 'John' })
-    expect(getDbData().payslips[1]).toEqual({
-      id: res2.body.id,
-      employee: 'John'
-    })
-    resetDbData()
+      .send(req2)
+    expect(
+      getDbData().payslips.find(rc => rc.employee === req2.employee).id
+    ).toBe(res2.body.id)
   })
 })
