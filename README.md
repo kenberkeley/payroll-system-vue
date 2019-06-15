@@ -37,6 +37,7 @@ $ npm run test:unit
 # Run end-to-end tests
 $ npm run start:api
 $ npm run test:e2e # in another terminal
+# npm run test:e2e:headless - Headless mode
 
 # Or, run above all by the one-liner:
 $ npm t
