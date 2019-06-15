@@ -6,6 +6,7 @@
     "api/"
   ],
   "ignore": [
-    "api/db/db.json"
+    "api/db/db.json",
+    "__tests__/*"
   ]
 }
