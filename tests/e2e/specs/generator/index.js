@@ -62,5 +62,16 @@ describe('Generator', () => {
     cy.inputField('Superannuation Rate', 10)
     cy.contains('Generate Payslip').click()
     cy.url().should('include', '/generator/preview')
+
+    cy.log(`try to circumvent form validation by browser's back & forward buttons`)
+    cy.go(-1)
+    cy.inputField('First Name', ' ')
+    cy.inputField('Last Name', ' ')
+    cy.inputField('Annual Salary', -180000)
+    cy.inputField('Superannuation Rate', -10)
+    cy.go(1)
+    cy.url().should('include', '/generator/capture') // stay still
+    cy.contains('Generate Payslip').click()
+    cy.url().should('include', '/generator/capture') // stay still
   })
 })
