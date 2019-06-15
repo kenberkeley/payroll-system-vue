@@ -24,4 +24,4 @@ yarn-error.log*
 *.sw?
 
 # DB data
-api/db/db.json
+/api/db/db.json
