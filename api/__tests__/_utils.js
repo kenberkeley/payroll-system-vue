@@ -3,7 +3,7 @@ import fs from 'fs'
 import { DB_FILE } from '../db/'
 import initDbDataGen from '../db/_defaultsGen'
 
-const dbFileInitContent = JSON.stringify(initDbDataGen())
+const dbFileInitContent = JSON.stringify(initDbDataGen(), null, 2)
 
 export function resetDbData () {
   fs.writeFileSync(DB_FILE, dbFileInitContent)
