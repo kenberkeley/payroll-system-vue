@@ -1,6 +1,7 @@
 import './db/'
 import express from 'express'
 import expressJwt from 'express-jwt'
+import detectPort from 'detect-port'
 import { JWT_SECRET, API_PORT } from './config'
 import { resThrow, notFound, errHandler } from './middlewares/errHandlers'
 import mountRouters from './modules/'
@@ -20,8 +21,10 @@ app.use(errHandler)
 if (module.parent) {
   exports.default = module.exports = app // for testing
 } else {
-  app.listen(API_PORT, () => {
-    console.info(`API server is running on http://localhost:${API_PORT}`)
+  detectPort(API_PORT).then(port => {
+    app.listen(port, () => {
+      console.info(`API server is running on http://localhost:${port}`)
+    })
   })
 }
 // TODO: http://expressjs.com/en/advanced/best-practice-security.html for production
