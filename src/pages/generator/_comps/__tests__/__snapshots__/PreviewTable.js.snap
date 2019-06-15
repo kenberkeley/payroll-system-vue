@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generator PreviewTable 1`] = `
+<table
+  class="table is-fullwidth -preview-table"
+>
+  <thead
+    class="has-text-weight-medium"
+  >
+    <tr>
+      <td>
+        T1
+      </td>
+       
+      <td>
+        T2
+      </td>
+    </tr>
+  </thead>
+   
+  <tbody>
+    <tr>
+      <td>
+        A
+      </td>
+       
+      <td>
+         B
+      </td>
+    </tr>
+    <tr>
+      <td>
+        C
+      </td>
+       
+      <td>
+         D
+      </td>
+    </tr>
+    <tr>
+      <td>
+        E
+      </td>
+       
+      <td>
+        $ F
+      </td>
+    </tr>
+     
+    <tr />
+  </tbody>
+</table>
+`;
