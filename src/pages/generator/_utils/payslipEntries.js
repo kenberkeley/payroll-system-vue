@@ -8,7 +8,8 @@ const PAY_FREQUENCY = {
   unit: 'M'
 }
 
-export default function ({ firstName, lastName, annualIncome, superRate } = this) {
+export default function (options = this) {
+  const { firstName, lastName, annualIncome, superRate } = options
   const grossIncome = Math.round(annualIncome / PAY_FREQUENCY.value)
   const incomeTax = Math.round(calcTax(annualIncome) / PAY_FREQUENCY.value)
   const netIncome = grossIncome - incomeTax

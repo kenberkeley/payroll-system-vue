@@ -37,7 +37,7 @@ describe('utils', () => {
   })
 
   it('payslipEntries', () => {
-    const entries = payslipEntries.call({
+    const entries = payslipEntries({
       firstName: 'John',
       lastName: 'Smith',
       annualIncome: 60050,
