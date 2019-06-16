@@ -110,7 +110,7 @@ Reference:
 * Only used a few classes from Bulma, but the bundle CSS is [large](https://bundlephobia.com/result?p=bulma) (204.7KB min, 25.3KB min+gzipped).  
   After introducing [PurgeCSS](https://github.com/FullHuman/purgecss), the final bundle sharply reduced to ~3KB (min+gzipped).
 
-## § Tests
+## § Testing
 
 ```sh
 # Run lints
