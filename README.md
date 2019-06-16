@@ -63,7 +63,7 @@ $ npm run dev
 │   │   │   ├── Footer.vue
 │   │   │   └── Header.vue
 │   │   └── main.vue
-│   ├── pages/
+│   ├── pages/ # Folder-by-feature (routes)
 │   │   ├── auth/
 │   │   │   └── login.vue
 │   │   └── generator/ # Has its own private comps, utils, etc
