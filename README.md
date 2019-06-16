@@ -28,8 +28,16 @@ $ npm i
 
 # Start API & Webpack dev servers
 $ npm run dev
-# Then open http://localhost:8080
 ```
+
+Then open http://localhost:8080 , you will see the login page.
+
+Log in with the admin user:
+
+* Username: `myob`
+* Password: `CremorneVIC3121`
+
+Above both can be modified in `api/config/index.js`
 
 ## $ Project Structure
 
@@ -39,7 +47,7 @@ $ npm run dev
 ├── api/ # API server source
 │   ├── config/
 │   ├── db/
-│   │   ├── db.json # Can access to the data at any time
+│   │   ├── db.json # You can see all the saved payslips here
 │   │   └── index.js
 │   ├── middlewares/
 │   ├── modules/ # Folder-by-feature
