@@ -7,10 +7,10 @@
 ## § Features
 > Powered by [Vue CLI 3.x](https://github.com/vuejs/vue-cli)
 
-* Basic: Vue + Vuex + Vue Router + Vue Meta + Axios
+* Basics: Vue + Vuex + Vue Router + Vue Meta + Axios
 * Build flow: npm scripts + Webpack + ESLint (Standard) + Babel
-* UI library: Bulma (Sass)
-* API & authentication: Express + Lowdb + JWT
+* UI library: Bulma (Sass, unused styles eliminated by PurgeCSS)
+* API & authentication: Express + LowDB + JWT
 * Testing: Jest (Unit), Cypress (E2E), Supertest (API)
 
 ## § Prerequisites
@@ -27,9 +27,8 @@ If you are a Windows user, consider using [Git bash](https://gitforwindows.org) 
 # Install dependencies
 $ npm i
 
-# Start API & hot-reload dev servers
+# Start API & Webpack dev servers
 $ npm run dev
-# Open http://localhost:8080
 ```
 
 ## § Tests
@@ -44,9 +43,21 @@ $ npm run test:unit
 # Run end-to-end tests
 $ npm run start:api
 $ npm run test:e2e # in another terminal
-# npm run test:e2e:headless - Headless mode
+# npm run test:e2e:headless # Headless mode
 
 # Or, run above all by the one-liner:
 $ npm t
 # Ctrl + C to stop the API server after the test run ends
 ```
+
+## § Deployment
+
+```sh
+# Compile for production
+$ npm run build
+# npm run build -- --report # generate report.html to analyze bundle content
+```
+
+Check out [`vue-cli-service build`](https://cli.vuejs.org/guide/cli-service.html#vue-cli-service-build) for more options.
+
+Also, see [here](https://cli.vuejs.org/guide/deployment.html) for deployment guidelines.
