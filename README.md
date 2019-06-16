@@ -53,6 +53,7 @@ Above both can be modified in `api/config/index.js`
 │   ├── modules/ # Folder-by-feature
 │   │   ├── auth/
 │   │   └── payslips/
+│   │       ├── utils/ # Only for this module
 │   │       ├── controllers.js
 │   │       └── router.js
 │   ├── utils/
