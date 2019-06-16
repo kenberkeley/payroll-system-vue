@@ -14,15 +14,13 @@
   </div>
 </template>
 <script>
-import dayjs from 'dayjs'
 import { toast } from 'bulma-toast'
 import { mapState, mapActions } from 'vuex'
 import Headerr from './_comps/Header.vue'
 import PreviewTable from './_comps/PreviewTable.vue'
-import validate from './_mixins/validate'
+import payslipEntries from './_utils/payslipEntries'
 import objectify from './_utils/objectify'
-import roundNum from './_utils/roundNum'
-import calcTax from './_utils/calcTax'
+import validate from './_mixins/validate'
 import module from './_store'
 
 export default {
@@ -47,26 +45,7 @@ export default {
   },
   computed: {
     ...mapState(module.name, Object.keys(module.state)),
-    payslipEntries () {
-      const PAY_FREQUENCY = { name: 'Monthly', value: 12, unit: 'M' }
-
-      const grossIncome = Math.round(this.annualIncome / PAY_FREQUENCY.value)
-      const incomeTax = Math.round(calcTax(this.annualIncome) / PAY_FREQUENCY.value)
-      const netIncome = grossIncome - incomeTax
-      const superannuation = Math.round(grossIncome * this.superRate / 100)
-      // `super` is a reserved word in JS
-      return [
-        ['Employee', this.firstName + ' ' + this.lastName],
-        ['Pay Date', dayjs().endOf(PAY_FREQUENCY.unit).format('D MMMM YYYY')],
-        ['Pay Frequency', PAY_FREQUENCY.name],
-        ['Annual Income', roundNum(this.annualIncome), '$'],
-        ['Gross Income', roundNum(grossIncome), '$'],
-        ['Income Tax', roundNum(incomeTax), '$'],
-        ['Net Income', roundNum(netIncome), '$'],
-        ['Super', roundNum(superannuation), '$'],
-        ['Pay', roundNum(netIncome - superannuation), '$']
-      ]
-    }
+    payslipEntries
   },
   methods: {
     ...mapActions(module.name, ['savePayslip', 'resetAll']),

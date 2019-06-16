@@ -1,6 +1,7 @@
 /* global describe, it, expect */
 import calcTax from '../calcTax'
 import objectify from '../objectify'
+import payslipEntries from '../payslipEntries'
 import roundNum from '../roundNum'
 
 describe('utils', () => {
@@ -33,6 +34,27 @@ describe('utils', () => {
       fooBar: 1,
       helloWorld: 2
     })
+  })
+
+  it('payslipEntries', () => {
+    const entries = payslipEntries.call({
+      firstName: 'John',
+      lastName: 'Smith',
+      annualIncome: 60050,
+      superRate: 9
+    })
+    const [payDate] = entries.splice(1, 1)
+    expect(payDate[0]).toBe('Pay Date')
+    expect(entries).toEqual([
+      ['Employee', 'John Smith'],
+      ['Pay Frequency', 'Monthly'],
+      ['Annual Income', '60050.00', '$'],
+      ['Gross Income', '5004.00', '$'],
+      ['Income Tax', '922.00', '$'],
+      ['Net Income', '4082.00', '$'],
+      ['Super', '450.00', '$'],
+      ['Pay', '3632.00', '$']
+    ])
   })
 
   it('roundNum', () => {
