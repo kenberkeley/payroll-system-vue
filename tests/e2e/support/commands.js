@@ -10,7 +10,7 @@
 //
 /* global Cypress, cy, expect */
 import HttpStatus from 'http-status-codes'
-import { ADMIN_USER } from '~/api/config'
+import { ADMIN_USER } from '~/api/config/'
 import { TOKEN } from '~/src/constants/LocalStorageKeys'
 require('@cypress/snapshot').register()
 

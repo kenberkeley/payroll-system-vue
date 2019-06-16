@@ -2,7 +2,7 @@ import './db/'
 import express from 'express'
 import expressJwt from 'express-jwt'
 import detectPort from 'detect-port'
-import { JWT_SECRET, API_PORT } from './config'
+import { JWT_SECRET, API_PORT } from './config/'
 import { resThrow, notFound, errHandler } from './middlewares/errHandlers'
 import mountRouters from './modules/'
 

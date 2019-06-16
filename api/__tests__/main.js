@@ -5,7 +5,7 @@ import request from 'supertest'
 import HttpStatus from 'http-status-codes'
 import app from '../main'
 import { DB_FILE } from '../db/'
-import { ADMIN_USER } from '../config'
+import { ADMIN_USER } from '../config/'
 const getDbData = () => JSON.parse(fs.readFileSync(DB_FILE, 'utf8'))
 
 describe('api tests', () => {

@@ -1,4 +1,4 @@
-import { ADMIN_USER } from '~/api/config'
+import { ADMIN_USER } from '~/api/config/'
 import saltedPwdHash from '~/api/utils/saltedPwdHash'
 
 export default function () {

@@ -1,4 +1,4 @@
-import { ADMIN_USER } from '~/api/config'
+import { ADMIN_USER } from '~/api/config/'
 import shortid from 'shortid'
 
 export default function (req) {
