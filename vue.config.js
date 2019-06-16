@@ -1,3 +1,5 @@
+const globby = require('globby')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
 const { API_PORT } = require('./api/config')
 
 module.exports = {
@@ -8,5 +10,17 @@ module.exports = {
         pathRewrite: { '^/api': '' }
       }
     }
+  },
+  configureWebpack: {
+    plugins: [
+      // https://github.com/FullHuman/purgecss/tree/master/examples/with-vue
+      new PurgecssPlugin({
+        paths: globby.sync([
+          './public/index.html',
+          './src/**/*.vue',
+          './src/**/*.js'
+        ])
+      })
+    ]
   }
 }
