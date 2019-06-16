@@ -40,7 +40,17 @@ describe('api tests', () => {
   })
 
   it('POST /payslips', async () => {
-    const reqGen = () => ({ employee: shortid.generate() + ' ' + shortid.generate() })
+    const reqGen = () => ({
+      employee: shortid.generate() + ' ' + shortid.generate(),
+      payDate: '30 June 2019',
+      payFrequency: 'Monthly',
+      annualIncome: '60050.00',
+      grossIncome: '5004.00',
+      incomeTax: '922.00',
+      netIncome: '4082.00',
+      super: '450.00',
+      pay: '3632.00'
+    })
 
     const req1 = reqGen()
     const res1 = await request(app)
@@ -60,5 +70,13 @@ describe('api tests', () => {
     expect(
       getDbData().payslips.find(rc => rc.employee === req2.employee).id
     ).toBe(res2.body.id)
+  })
+
+  it('POST /payslips with invalid payload', async () => {
+    const res = await request(app)
+      .post('/payslips')
+      .set(authHeader)
+      .send({})
+    expect(res.status).toBe(HttpStatus.UNPROCESSABLE_ENTITY)
   })
 })
