@@ -7,7 +7,8 @@
 ## § Features
 > Mostly powered by [Vue CLI 3.x](https://github.com/vuejs/vue-cli)
 
-* Basics: Vue + Vuex + Vue Router + Vue Meta + Axios + Bulma
+* Basics: Vue + Vuex + Vue Router + Vue Meta + Axios
+* UI library: Bulma (Fully Responsive & Mobile First Design)
 * API & authentication: Express + LowDB (tiny JSON DB) + JWT
 * Build flow: npm scripts + Webpack + ESLint (Standard) + Babel
 * Comprehensive testing: Jest (Unit), Cypress (E2E), Supertest (API)
