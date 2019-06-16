@@ -7,6 +7,9 @@ import { resThrow, notFound, errHandler } from './middlewares/errHandlers'
 import mountRouters from './modules/'
 
 const app = express()
+if (process.env.NODE_ENV === 'production') {
+  app.use(require('helmet')())
+}
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
@@ -27,4 +30,3 @@ if (module.parent) {
     })
   })
 }
-// TODO: http://expressjs.com/en/advanced/best-practice-security.html for production
