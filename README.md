@@ -99,6 +99,7 @@ Above both can be modified in `api/config/index.js`
 ```
 
 Reference:
+
 * [Folder-by-type or Folder-by-feature (Stack Exchange)](https://softwareengineering.stackexchange.com/a/338610)
 * [Node.js Project Structure Tutorial (RisingStack)](https://blog.risingstack.com/node-hero-node-js-project-structure-tutorial)
 * [How to better organize your React applications? (Medium)](https://medium.com/@alexmngn/how-to-better-organize-your-react-applications-2fd3ea1920f1)
