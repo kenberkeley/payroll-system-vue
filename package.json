@@ -16,7 +16,7 @@
     "start:api": "node -r esm api/main.js",
     "prestart:api": "npm run lint:api",
     "dev": "run-p serve dev:api",
-    "postinstall": "rimraf snapshots.js && link-module-alias"
+    "postinstall": "rimraf ./snapshots.js && link-module-alias"
   },
   "_moduleAliases": {
     "~": "./"
