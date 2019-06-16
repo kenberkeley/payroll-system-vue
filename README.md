@@ -4,7 +4,14 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 ![node>=8.6](https://img.shields.io/badge/node-%3E%3D%208.6-brightgreen.svg)
 
+## § Features
 > Powered by [Vue CLI 3.x](https://github.com/vuejs/vue-cli)
+
+* Basic: Vue + Vuex + Vue Router + Vue Meta + Axios
+* Build flow: npm scripts + Webpack + ESLint (Standard) + Babel
+* UI library: Bulma (Sass)
+* API & authentication: Express + Lowdb + JWT
+* Testing: Jest (Unit), Cypress (E2E), Supertest (API)
 
 ## § Prerequisites
 
