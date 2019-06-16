@@ -113,9 +113,9 @@ Reference:
 
 * [vuex-map-fields](https://github.com/maoberlehner/vuex-map-fields) enables two-way data binding for form fields saved in a Vuex store.
 
-* Moment.js is cumbersome? [Day.js](https://github.com/iamkun/dayjs) to save! Only 2KB (min+gzipped), with the same but immutable API.
+* Moment.js is [cumbersome](https://bundlephobia.com/result?p=moment)? [Day.js](https://github.com/iamkun/dayjs) to save! Only 2.7 KB (min+gzipped), with the same but immutable API.
 
-* Only used a few classes from Bulma, but the bundle CSS is [large](https://bundlephobia.com/result?p=bulma) (204.7KB min, 25.3KB min+gzipped).  
+* Only used a few classes from Bulma, but the bundle CSS is [large](https://bundlephobia.com/result?p=bulma) (204.7 KB min, 25.3 KB min+gzipped).  
   After introducing [PurgeCSS](https://github.com/FullHuman/purgecss), the final bundle sharply reduced to ~3KB (min+gzipped).
 
 ## § Testing
