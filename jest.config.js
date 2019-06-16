@@ -1,4 +1,7 @@
 module.exports = {
+  setupFiles: [
+    'jest-localstorage-mock'
+  ],
   moduleFileExtensions: [
     'js',
     'jsx',

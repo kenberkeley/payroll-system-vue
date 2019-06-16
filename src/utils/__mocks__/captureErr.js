@@ -1,1 +1,2 @@
-export default () => {}
+/* global jest */
+export default jest.fn(() => {})

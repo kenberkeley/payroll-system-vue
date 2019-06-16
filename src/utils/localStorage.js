@@ -12,6 +12,7 @@ export default {
       return JSON.parse(LS.getItem(key))
     } catch (e) {
       captureErr(e)
+      return null
     }
   },
   set (key, val) {
