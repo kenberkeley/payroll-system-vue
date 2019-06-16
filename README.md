@@ -96,8 +96,10 @@ Reference:
 ## § Tips & tricks
 
 * With the help of [link-module-alias](https://github.com/Rush/link-module-alias):
-  * Before: `require('../../../../../<project root>/xxx/yyy')`
+  * Before: `require('../../../../../<projectRoot>/xxx/yyy')`
   * Now: `require('~/xxx/yyy')`
+
+  By the way, Vue CLI [by default](https://cli.vuejs.org/guide/html-and-static-assets.html#url-transform-rules) aliases `@` to `<projectRoot>/src`.
 
 * API server supports ES Module with [esm](https://github.com/standard-things/esm). No longer need Babel.
 
